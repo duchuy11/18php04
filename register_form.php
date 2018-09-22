@@ -30,7 +30,7 @@
 			$pass = @$_POST["password"];
 			$repass = @$_POST["repassword"];
 			$gender = @$_POST["gender"];
-			$city = @$_POST["city"];
+			$city = $_POST["city"];
 			$desc = @$_POST["desc"];
 			if (empty($name)) {
 				$name_err = " Vui lòng nhập tên";
@@ -60,8 +60,8 @@
 				$validation = false;
 			}
 
-			if (empty($city)) {
-				$city_err = " Bạn chưa chọn quê quáng";
+			if ($city == "Unselected") {
+				$city_err = " Bạn chưa chọn quê quán";
 				$validation = false;
 			}
 
@@ -91,14 +91,14 @@
 		Nam <input name="gender" type="radio" value="male">
 		Nữ <input name="gender" type="radio" value="female">
 		Khác <input name="gender" type="radio" value="other"><span><?php echo $gender_err; ?></span><br>
-		Quê quáng : <select name="city">
-			<option value="select">Select</option>
-			<option value="DN">DN</option>
-			<option value="HN">HN</option>
-			<option value="SG">SG</option>
+		Quê quán : <select name="city">
+			<option value="Unselected">Select</option>
+			<option>DN</option>
+			<option>HN</option>
+			<option>SG</option>
 		</select><span><?php echo $city_err; ?></span><br>
 		Miêu tả về bản thân : <textarea name="desc"></textarea><span><?php echo $desc_err; ?></span><br>
-		Avatar : <input type="file" name="avatar"><br>
+		Avatar : <input type="file" name="avatar" style="color:red;"><br>
 		<input type="submit" name="submit" value="Register">
 
 		<?php echo "<b>" . $alert . "</b>"; ?>

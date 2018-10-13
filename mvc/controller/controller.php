@@ -1,5 +1,6 @@
 <?php 
 include 'model/model.php';
+include 'model/model_.php';
 class Controller {
 	function handleRequest() {
 		$action = isset($_GET['action'])?$_GET['action']:'';
@@ -18,8 +19,8 @@ class Controller {
 						$validation = false;
 					}
 					if ($validation) {
-						$target = "images/".basename($_FILES["image"]["name"]);
 						$image = $_FILES["image"]["name"];
+						$target = "images/".basename($image);
 						$userModel = new Model();
 						$userModel->register($username,$password,$image);
 						move_uploaded_file($_FILES["image"]["tmp_name"],$target);
@@ -90,6 +91,53 @@ class Controller {
 					header("Location:index.php?action='login'");
 				}
 				break;
+
+			case "add_product":
+				if (isset($_SESSION["login"])) {
+					if (isset($_POST["add_product"])) {
+						$product_name = $_POST["product_name"];
+						$product_description = $_POST["product_description"];
+						$product_price = $_POST["product_price"];
+						$product_image = $_FILES["product_image"]["name"];
+						$target = "images/products/".basename($product_image);
+						move_uploaded_file($_FILES["product_image"]["tmp_name"],$target);
+						$productModel = new Product();
+						$addProduct = $productModel->addProduct($product_name,$product_description,$product_price,$product_image);
+					}
+				} else {
+					header("Location:index.php?action='login'");
+				}
+				include "view/add_product.php";
+				break;
+
+			case "product":
+				$productModel = new Product();
+				$listProduct = $productModel->getProductList();
+				include "view/product_list.php";
+				break;
+
+			case "add_cart":
+					$product_id = $_GET["id"];
+					$productModel = new Product();
+					$addCart = $productModel->addToCart($product_id);
+					header("Location:index.php?action=product");
+				include "view/cart.php";
+				break;
+
+			case "cart":
+					$productModel = new Product();
+					$listCart = $productModel->getCartList();
+				include "view/cart.php";
+				break;
+
+			case "delete_cart_item":
+					$id = $_GET["id"];
+					$productModel = new Product();
+					$deleteCartItem = $productModel->deleteCartItem($id);
+					header("Location:index.php?action=cart");
+				include "view/cart.php";
+				break;
+
 			default:
 				echo "<br><h1>WELCOME !!!</h1>";
 				break;

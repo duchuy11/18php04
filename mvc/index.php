@@ -38,11 +38,14 @@
 <?php session_start(); ?>
 <div class="panel">
 	<div class="panel_left">
+		<a href='index.php?action=product'><button class='btn btn-success'>Product</button></a>
 		<?php 
 		if (!isset($_SESSION["login"])) {
 			echo "<a href='index.php?action=register'><button class='btn btn-success'>Register</button></a> ";
 			echo "<a href='index.php?action=login'><button class='btn btn-success'>Login</button></a>";
 		}
+		$add_product =  isset($_SESSION["login"]) ? " <a href='index.php?action=add_product'><button class='btn btn-success'>Add product</button></a>" : "";
+		echo $add_product;
 		$change_password =  isset($_SESSION["login"]) ? " <a href='index.php?action=change_password'><button class='btn btn-success'>Change password</button></a>" : "";
 		echo $change_password;
 		$user_list = isset($_SESSION["login"]) ? " <a href='index.php?action=user_list'><button class='btn btn-warning'>User list</button></a>" : "";
@@ -63,6 +66,7 @@
 		?>
 	</div>
 	<div class="panel_right">
+		<a href='index.php?action=cart'><button class='btn btn-danger'>Cart</button></a>
 		<?php
 		$logout_status = isset($_SESSION["login"]) ? " <a href='index.php?action=logout'><button class='btn btn-danger'>Log out</button></a>" : "";
 		echo $logout_status;

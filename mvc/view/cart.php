@@ -1,3 +1,6 @@
+<title>Cart</title>
+
+<h1>Cart</h1>
 <div class="container">
 <div class="row">
 <?php 
@@ -25,6 +28,7 @@ while ($row = $listCart->fetch_assoc()) {
 </div>
 
 <?php
+  @$cartItemCount = $cartItemCount + 1;
   @$needToPay = $row_cart["product_price"] + $needToPay;
   }
 }
@@ -34,8 +38,11 @@ while ($row = $listCart->fetch_assoc()) {
 
 <div class="needToPay">
   <?php 
-
-  echo "<h1>Need to pay : <kbd>". number_format($needToPay)."$</kbd> <button class='btn btn-danger'>BUY</button></h1>";
+  if (@$needToPay == 0) {
+    echo "<h1>Cart is empty</h1>";
+  } else {
+    echo "<h1>($cartItemCount items) Need to pay : <kbd>". @number_format($needToPay)."$</kbd> <button class='btn btn-danger'>BUY</button></h1>";
+  }
 
   ?>
 </div>

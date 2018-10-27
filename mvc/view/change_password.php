@@ -1,3 +1,4 @@
+<title>Change password</title>
 <h1> CHANGE PASSWORD </h1>
 <form name="change_password" method="post">
 	Current username :

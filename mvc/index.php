@@ -1,55 +1,25 @@
-
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<style>
-	h1 {
-		text-align: center;
-	}
-	body {
-		padding: 10px;
-	}
-	.panel {
-		border: 1.5px solid grey;
-		padding: 10px;
-		height:58px;
-	} .panel_left {
-		float:left;
-	} .panel_right {
-		float:right;
-	}
-	form {
-		width: 500px;
-		height: 500px;
-		margin: auto;
-	}
-	ul {
-		width: 700px;
-		margin: auto;
-	} li {
-		height: 55px;
-		line-height: 35px;
-	}
-
-	#btn_delete {
-		text-align: right;
-		float:right;
-	}
-</style>
-<?php session_start(); ?>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<?php session_start();
+function button_backend($action,$btn_name,$btn_style) {
+	return isset($_SESSION["login"]) ? " <a href='index.php?action=$action'><button class='btn btn-$btn_style'>$btn_name</button></a>" : "";
+}
+function button_frontend($action,$btn_name,$btn_style) {
+	return !isset($_SESSION["login"]) ? " <a href='index.php?action=$action'><button class='btn btn-$btn_style'>$btn_name</button></a>" : "";
+}
+?>
 <div class="panel">
 	<div class="panel_left">
-		<a href='index.php?action=product'><button class='btn btn-success'>Product</button></a>
-		<?php 
-		if (!isset($_SESSION["login"])) {
-			echo "<a href='index.php?action=register'><button class='btn btn-success'>Register</button></a> ";
-			echo "<a href='index.php?action=login'><button class='btn btn-success'>Login</button></a>";
-		}
-		$add_product =  isset($_SESSION["login"]) ? " <a href='index.php?action=add_product'><button class='btn btn-success'>Add product</button></a>" : "";
-		echo $add_product;
-		$change_password =  isset($_SESSION["login"]) ? " <a href='index.php?action=change_password'><button class='btn btn-success'>Change password</button></a>" : "";
-		echo $change_password;
-		$user_list = isset($_SESSION["login"]) ? " <a href='index.php?action=user_list'><button class='btn btn-warning'>User list</button></a>" : "";
-		echo $user_list;
+		<a href='index.php'><button class='btn btn-danger'>Home</button></a>
+		<a href='index.php?action=product'><button class='btn btn-success'>Product list</button></a>
+		<?php
+		echo button_backend("news_list","News List","success");
+		echo button_backend("user_list","User List","success");
+		echo button_frontend("register","Register","danger");
+		echo button_frontend("login","Login","danger");
+		echo button_backend("add_product","Add Product","warning");
+		echo button_backend("add_news","Add News","warning");
+		echo button_backend("change_password","Change Password","info");
 		$login_status = isset($_SESSION["login"]) ? " Logged (<b>" . $_SESSION["login"] . "</b>)" : " Guest";
 		echo $login_status;
 		if (isset($_SESSION["login"])) {
@@ -62,18 +32,15 @@
 				echo "  <img src='images/$row[image]' width='30px' height='30px'>";
 			}
 		}
-		
 		?>
 	</div>
 	<div class="panel_right">
 		<a href='index.php?action=cart'><button class='btn btn-danger'>Cart</button></a>
 		<?php
-		$logout_status = isset($_SESSION["login"]) ? " <a href='index.php?action=logout'><button class='btn btn-danger'>Log out</button></a>" : "";
-		echo $logout_status;
+		echo button_backend("logout","Log out","danger");
 		?>
 	</div>
 </div>
-
 <?php 
 	include 'controller/controller.php';
 	$controller = new Controller();

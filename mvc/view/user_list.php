@@ -1,3 +1,4 @@
+<title>User list</title>
 <h1> User list </h1>
 <ul class="list-group">
 <?php 

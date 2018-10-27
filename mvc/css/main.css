@@ -1,0 +1,50 @@
+	h1 {
+		text-align: center;
+	}
+	body {
+		padding: 10px;
+	}
+	.panel {
+		border: 1.5px solid grey;
+		padding: 10px;
+		height:58px;
+	} .panel_left {
+		float:left;
+	} .panel_right {
+		float:right;
+	}
+	form {
+		width: 500px;
+		height: 500px;
+		margin: auto;
+	}
+	ul {
+		width: 700px;
+		margin: auto;
+	} li {
+		height: 55px;
+		line-height: 35px;
+	}
+
+	#btn_delete {
+		text-align: right;
+		float:right;
+	}
+
+	textarea {
+		width: 500px;
+		height: 200px;
+		resize: none;
+		border-radius: 5px;
+		border-color :#ccc;
+	}
+
+	.news {
+		width: 700px;
+		height: auto;
+		border: 1px #ccc solid;
+		margin: auto;
+		padding: 20px 20px 30px 20px;
+		border-radius: 15px;
+		margin-bottom: 20px;
+	} 

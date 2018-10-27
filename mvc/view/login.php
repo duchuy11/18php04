@@ -1,3 +1,5 @@
+
+<title>LOGIN</title>
 <h1> LOGIN </h1>
 <form name="login" method="post">
 	Username :

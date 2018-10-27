@@ -25,5 +25,15 @@
 			$mysql_delete_cart_item = "DELETE FROM cart WHERE id=$id";
 			return mysqli_query($this->conn_product,$mysql_delete_cart_item);
 		}
+
+		function editProduct($id,$product_name,$product_description,$product_price,$product_image) {
+			$mysql_edit_product = "UPDATE products SET product_name = '$product_name',product_description = '$product_description',product_price = '$product_price',product_image = '$product_image' WHERE id = '$id'";
+			return mysqli_query($this->conn_product,$mysql_edit_product);
+		}
+
+		function deleteProduct($id){
+			$mysql_delete_product = "DELETE FROM products WHERE id='$id'";
+			return mysqli_query($this->conn_product,$mysql_delete_product);
+		}
 	}
 ?>

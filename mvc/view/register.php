@@ -1,3 +1,4 @@
+<title>REGISTER</title>
 <h1> REGISTER </h1>
 <form name="register" method="post" enctype="multipart/form-data">
 	Username :

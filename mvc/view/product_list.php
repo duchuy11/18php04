@@ -2,7 +2,8 @@
 <h1>Product list</h1>
 <div class="container">
 	<div class="row">
-<?php while ($row = $listProduct->fetch_assoc()) {
+<?php
+  while ($row = $listProduct->fetch_assoc()) {
 ?>
 
 <div class="col-sm-4">

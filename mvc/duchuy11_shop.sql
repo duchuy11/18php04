@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 01:03 AM
+-- Generation Time: Nov 10, 2018 at 11:37 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -38,14 +38,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`) VALUES
-(22, 7),
-(23, 8),
-(24, 9),
-(32, 7),
-(33, 9),
-(34, 8),
-(35, 9),
-(36, 7);
+(41, 9),
+(42, 8),
+(43, 7),
+(58, 12),
+(62, 11);
 
 -- --------------------------------------------------------
 
@@ -66,9 +63,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_description`, `product_price`, `product_image`) VALUES
-(7, 'Leopard 2A7', 'Germany tank', 5700000, 'maxresdefault.jpg'),
-(8, 'T90', 'Russia tank', 4500000, 'T-90.jpg'),
-(9, 'Type-10', 'Japanese tank', 8000000, 'Type10_tank_soha.vn-f8583.jpg');
+(11, 'TYPE 10', 'Japanese main battle tank', 50000000, 'Type10_tank_soha.vn-f8583.jpg'),
+(12, 'tank', 'tank', 2222222, 'T-90.jpg');
 
 --
 -- Indexes for dumped tables
@@ -94,13 +90,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

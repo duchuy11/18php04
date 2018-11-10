@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2018 at 12:16 PM
+-- Generation Time: Nov 10, 2018 at 11:37 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `duchuy11_shop`
+-- Database: `duchuy11_user`
 --
 
 -- --------------------------------------------------------
@@ -40,8 +40,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `image`) VALUES
-(64, 'duchuy22', '123123', 'goblin-slayer-1.jpg'),
-(65, '123123', '123123', 'goblin-slayer-1.jpg');
+(93, 'duchuy22', '123123', '7furz89oznj01.jpg'),
+(94, 'rudenhuy', '123123', 'ArthurMorgan-Redemption2.jpg'),
+(95, '1', '1', 'maxresdefault.jpg');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

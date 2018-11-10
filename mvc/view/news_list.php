@@ -21,10 +21,12 @@ while ($row = $listNews->fetch_assoc()) { ?>
         <td><?php echo $row["news_description"]; ?></td>
         <td><?php echo $row["news_author"]; ?></td>
         <td><a href="index.php?action=delete_news&id=<?php echo $row['id'];?>" class="btn btn-danger">Delete</a></td>
+        <td><a href="index.php?action=edit_news&id=<?php echo $row['id'];?>" class="btn btn-danger">Edit</a></td>
       </tr>
     </tbody>
 <?php 
 }
 ?>
   </table>
+
 </div>

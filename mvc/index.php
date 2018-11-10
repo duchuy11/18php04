@@ -42,7 +42,7 @@ function button_frontend($action,$btn_name,$btn_style) {
 	</div>
 </div>
 <?php 
-	include 'controller/controller.php';
-	$controller = new Controller();
-	$controller->handleRequest();
+include 'controller/controller.php';
+$controller = new Controller();
+$controller->handleRequest();
 ?>
